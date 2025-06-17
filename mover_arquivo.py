@@ -13,7 +13,7 @@ def moverArquivo():
                         datefmt='%m/%d/%Y %I:%M:%S %p')
     
     # caminho e nome do arquivo, o nome é sempre o mesmo
-    arquivo = r'C:\documentos\CARRINHO_ABANDONADO.csv'
+    arquivo = r'C:\documentos\nome_arquivo.csv'
     # pasta de destino para onde o arquivo sera encaminhado
     pasta_destino = r'C:\Área de Trabalho\arquivo'
     data_arquivo = os.path.getmtime(arquivo) # pega a data do arquivo neste formato 17293847.0
@@ -26,8 +26,8 @@ def moverArquivo():
     if data_formatada.date() == data_hoje.date():
         shutil.copy(arquivo,pasta_destino) # faz a copia
         #renomeia o arquivo
-        os.rename(r'C:\Área de Trabalho\arquivo\CARRINHO_ABANDONADO.csv', 
-                fr'C:\Área de Trabalho\arquivo\CARRINHO_ABANDONADO_{data_hoje.strftime('%d%m%Y')}.csv')
+        os.rename(r'C:\Área de Trabalho\arquivo\nome_arquivo.csv', 
+                fr'C:\Área de Trabalho\arquivo\nome_arquivo_{data_hoje.strftime('%d%m%Y')}.csv')
         logging.info('Arquivo copiado e renomeado')
     else:
         logging.warning('Arquivo não incluido na pasta hoje')
